@@ -1,5 +1,7 @@
 # 智工智能体平台
 
+> Industrial AI Agent Studio for equipment diagnostics, workflow orchestration and knowledge-driven automation.
+
 面向工业智能应用搭建场景的前端平台，聚焦智能体配置、可视化工作流编排、工业知识库管理、插件能力扩展、数据标注与用户权限管理等模块。
 
 ## 项目定位
@@ -26,6 +28,32 @@
 - `React Flow`
 - `Dagre`
 - `SSE` 流式响应
+
+## 页面预览
+
+### 平台总览
+
+![平台总览](docs/screenshots/01-dashboard.png)
+
+### 智能体编辑器
+
+![智能体编辑器](docs/screenshots/02-agent-editor.png)
+
+### 工作流编辑器
+
+![工作流编辑器](docs/screenshots/03-workflow-editor.png)
+
+### 工业知识库
+
+![工业知识库](docs/screenshots/04-knowledge-detail.png)
+
+### 插件广场
+
+![插件广场](docs/screenshots/05-plugin-market.png)
+
+### 数据标注
+
+![数据标注](docs/screenshots/06-labeling-list.png)
 
 ## 核心模块
 

@@ -77,12 +77,12 @@ export default function KnowledgeDetailPage() {
     if (!knowledgeBaseId) return;
     initMockData();
 
-    const base = knowledgeService.getKnowledgeBaseById(knowledgeBaseId)
-      || MOCK_KNOWLEDGE_BASES.find((item) => item.id === knowledgeBaseId)
+    const base = MOCK_KNOWLEDGE_BASES.find((item) => item.id === knowledgeBaseId)
+      || knowledgeService.getKnowledgeBaseById(knowledgeBaseId)
       || null;
     const docs = knowledgeService.getDocumentsByKnowledgeBaseId(knowledgeBaseId);
     const fallbackDocs = MOCK_DOCUMENTS.filter((doc) => doc.knowledgeBaseId === knowledgeBaseId);
-    const nextDocs = docs.length > 0 ? docs : fallbackDocs;
+    const nextDocs = fallbackDocs.length > 0 ? fallbackDocs : docs;
     setKnowledgeBase(base);
     setDocuments(nextDocs);
     setSelectedDocId((prev) => prev || nextDocs[0]?.id || '');
@@ -93,7 +93,8 @@ export default function KnowledgeDetailPage() {
       setDetail(null);
       return;
     }
-    const nextDetail = knowledgeService.getDocumentDetail(selectedDocId) || getMockDocumentDetail(selectedDocId);
+    const mockDetail = getMockDocumentDetail(selectedDocId);
+    const nextDetail = mockDetail || knowledgeService.getDocumentDetail(selectedDocId);
     setDetail(nextDetail);
     setSelectedChapterId('');
     setSelectedChunkId('');

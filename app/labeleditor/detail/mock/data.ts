@@ -31,86 +31,92 @@ export const createMockData = (rId: string, type: string): AnnotationData => {
     case 'entity-relation':
       return {
         ...baseData,
-        name: '实体关系标注任务 - 科技公司介绍',
-        content: '微软（Microsoft）由比尔·盖茨（Bill Gates）和保罗·艾伦（Paul Allen）于1975年4月4日在新墨西哥州的阿尔伯克基创立。当时，比尔·盖茨是公司的首席执行官（CEO）。作为一家总部位于美国华盛顿州雷德蒙德的跨国科技公司，微软是全球最大的软件制造商之一。',
+        name: '实体关系标注任务 - 设备告警工单',
+        content: '产线A-03空压机在2026年5月27日08:15触发高温告警，边缘网关GW-07通过Modbus TCP采集到排气温度96℃、振动RMS 8.2mm/s。运维工程师张工在一车间确认冷却风扇转速异常，并创建工单WO-20260527-001。',
         type: 'entity-relation',
         entityLabels: [
-          { id: '1', name: '人物', color: '#1890ff', selected: false },
-          { id: '2', name: '公司', color: '#52c41a', selected: false },
-          { id: '3', name: '地点', color: '#fa8c16', selected: false },
-          { id: '4', name: '时间', color: '#eb2f96', selected: false },
-          { id: '5', name: '职位', color: '#722ed1', selected: false }
+          { id: '1', name: '设备', color: '#1890ff', selected: false },
+          { id: '2', name: '产线/位置', color: '#52c41a', selected: false },
+          { id: '3', name: '时间', color: '#fa8c16', selected: false },
+          { id: '4', name: '告警', color: '#eb2f96', selected: false },
+          { id: '5', name: '采集网关', color: '#722ed1', selected: false },
+          { id: '6', name: '协议', color: '#13c2c2', selected: false },
+          { id: '7', name: '指标', color: '#f5222d', selected: false },
+          { id: '8', name: '人员', color: '#faad14', selected: false },
+          { id: '9', name: '工单', color: '#2f54eb', selected: false }
         ],
         relationLabels: [
-          { id: '1', name: '创立', entityLabelIds: ['1', '2'], selected: false },
-          { id: '2', name: '担任', entityLabelIds: ['1', '5'], selected: false },
-          { id: '3', name: '位于', entityLabelIds: ['2', '3'], selected: false }
+          { id: '1', name: '位于', entityLabelIds: ['1', '2'], selected: false },
+          { id: '2', name: '触发', entityLabelIds: ['1', '4'], selected: false },
+          { id: '3', name: '采集自', entityLabelIds: ['7', '5'], selected: false },
+          { id: '4', name: '使用协议', entityLabelIds: ['5', '6'], selected: false },
+          { id: '5', name: '处理人', entityLabelIds: ['9', '8'], selected: false }
         ],
         entities: [
           {
             id: 'entity_1',
-            text: '微软',
+            text: '产线A-03',
             start: 0,
-            end: 2,
+            end: 6,
             // @ts-ignore
             labelId: '2',
-            labelName: '公司',
+            labelName: '产线/位置',
             color: '#52c41a',
             visible: true,
             highlighted: false
           },
           {
             id: 'entity_2',
-            text: '比尔·盖茨',
-            start: 15,
-            end: 20,
+            text: '空压机',
+            start: 6,
+            end: 9,
             labelId: '1',
-            labelName: '人物',
+            labelName: '设备',
             color: '#1890ff',
             visible: true,
             highlighted: false
           },
           {
             id: 'entity_3',
-            text: '保罗·艾伦',
-            start: 32,
-            end: 37,
-            labelId: '1',
-            labelName: '人物',
-            color: '#1890ff',
+            text: '2026年5月27日08:15',
+            start: 10,
+            end: 25,
+            labelId: '3',
+            labelName: '时间',
+            color: '#fa8c16',
             visible: true,
             highlighted: false
           },
           {
             id: 'entity_4',
-            text: '1975年4月4日',
-            start: 39,
-            end: 49,
+            text: '高温告警',
+            start: 27,
+            end: 31,
             labelId: '4',
-            labelName: '时间',
+            labelName: '告警',
             color: '#eb2f96',
             visible: true,
             highlighted: false
           },
           {
             id: 'entity_5',
-            text: '新墨西哥州',
-            start: 51,
-            end: 56,
-            labelId: '3',
-            labelName: '地点',
-            color: '#fa8c16',
+            text: '边缘网关GW-07',
+            start: 32,
+            end: 41,
+            labelId: '5',
+            labelName: '采集网关',
+            color: '#722ed1',
             visible: true,
             highlighted: false
           },
           {
             id: 'entity_6',
-            text: '首席执行官',
-            start: 85,
-            end: 90,
-            labelId: '5',
-            labelName: '职位',
-            color: '#722ed1',
+            text: 'Modbus TCP',
+            start: 43,
+            end: 53,
+            labelId: '6',
+            labelName: '协议',
+            color: '#13c2c2',
             visible: true,
             highlighted: false
           }
@@ -121,61 +127,48 @@ export const createMockData = (rId: string, type: string): AnnotationData => {
             fromEntityId: 'entity_2',
             toEntityId: 'entity_1',
             relationId: '1',
-            relationName: '创立',
+            relationName: '位于',
             visible: true
           },
           {
             id: 'relation_2',
-            fromEntityId: 'entity_3',
-            toEntityId: 'entity_1',
-            relationId: '1',
-            relationName: '创立',
+            fromEntityId: 'entity_1',
+            toEntityId: 'entity_4',
+            relationId: '2',
+            relationName: '触发',
             visible: true
           },
           {
             id: 'relation_3',
-            fromEntityId: 'entity_2',
+            fromEntityId: 'entity_5',
             toEntityId: 'entity_6',
-            relationId: '2',
-            relationName: '担任',
+            relationId: '4',
+            relationName: '使用协议',
             visible: true
           }
         ],
         progress: {
-          totalCharacters: 95,
-          annotatedCharacters: 35,
-          percentage: 37
+          totalCharacters: 121,
+          annotatedCharacters: 72,
+          percentage: 60
         }
       } as EntityRelationData;
 
     case 'classification':
       return {
         ...baseData,
-        name: '这是一个标注名称（标注任务: 123）',
-        content: `内部采购合同
+        name: '告警文本分类任务 - 工业设备状态',
+        content: `设备告警记录
 
-合同编号：CG-2024-0810-001
+告警编号：ALM-20260527-0087
+设备名称：A03 空压机
+所属产线：总装一线
+采集来源：边缘网关 GW-07 / Modbus TCP
+触发时间：2026-05-27 08:15:32
 
-甲方（采购方）：
-部门名称：创新事业部
-负责人：李经理
-联系方式：li@company.com / 分机号：8001
+告警内容：排气温度连续 6 分钟高于 95℃，振动 RMS 从 5.4mm/s 升至 8.2mm/s，设备健康评分降至 64。现场点检发现冷却风扇转速偏低，建议限制负载并创建预测性维护工单。
 
-乙方（供应方）：
-部门名称：行政部-采购处
-负责人：王主管
-联系方式：wang@company.com / 分机号：6005
-
-鉴于甲方因业务发展需要，时向乙方申请采购一批办公设备，乙方同意根据公司内部采购流程提供相关服务，双方经协商一致，达成如下协议：
-
-第一条 采购物品清单
-
-| 序号 | 物品名称 | 规格型号 | 单位 | 数量 | 预估单价（元）| 预估总价（元）| 备注 |
-|------|----------|----------|------|------|---------------|---------------|------|
-| 1    | 笔记本电脑 | ThinkPad X1 Carbon | 台  | 5    | 12,000.00     | 60,000.00     | 研发人员使用 |
-| 2    | 34英寸曲面显示器 | Dell U3421WE | 台  | 5    | 5,500.00      | 27,500.00     |      |
-| 3    | 机械键盘 | Cherry MX 3.0 | 个  | 5    | 800.00        | 4,000.00      |      |
-|      |          |          |      |      | 合计：        | 91,500.00     |      |`,
+关联指标：排气温度、振动 RMS、电流负载率、冷却风扇转速、设备健康评分。`,
         type: 'classification',
         formFields: [
           {
@@ -185,32 +178,34 @@ export const createMockData = (rId: string, type: string): AnnotationData => {
             type: 'radio',
             required: true,
             options: [
-              { label: '合同', value: 'contract', hasInput: true, inputPlaceholder: '请输入合同类型' },
-              { label: '报告', value: 'report', hasInput: false },
-              { label: '发票', value: 'invoice', hasInput: false },
+              { label: '设备告警', value: 'alarm', hasInput: true, inputPlaceholder: '请输入告警类型' },
+              { label: '点检记录', value: 'inspection', hasInput: false },
+              { label: '维修工单', value: 'work_order', hasInput: false },
+              { label: '设备手册', value: 'manual', hasInput: false },
               { label: '其他', value: 'other', hasInput: true, inputPlaceholder: '请说明其他类型' }
             ]
           },
           {
-            id: 'business_department',
-            name: 'business_department',
-            label: '业务部门',
+            id: 'alarm_level',
+            name: 'alarm_level',
+            label: '告警等级',
             type: 'checkbox',
             required: false,
             options: [
-              { label: '财务部', value: 'finance', hasInput: false },
-              { label: '市场部', value: 'marketing', hasInput: true, inputPlaceholder: '请输入具体市场部门' },
-              { label: '人力资源部', value: 'hr', hasInput: false }
+              { label: '提示', value: 'notice', hasInput: false },
+              { label: '一般', value: 'minor', hasInput: false },
+              { label: '严重', value: 'major', hasInput: true, inputPlaceholder: '请输入严重原因' },
+              { label: '紧急', value: 'critical', hasInput: true, inputPlaceholder: '请输入紧急处置要求' }
             ]
           },
           {
-            id: 'project_client',
+            id: 'affected_asset',
             // @ts-ignore
-            name: 'project_client',
-            label: '项目/客户',
+            name: 'affected_asset',
+            label: '影响设备/产线',
             type: 'input',
             required: false,
-            placeholder: '输入内容',
+            placeholder: '例如：A03 空压机 / 总装一线',
             maxLength: 100
           }
         ],
@@ -223,19 +218,19 @@ export const createMockData = (rId: string, type: string): AnnotationData => {
       //@ts-ignore
       return {
         ...baseData,
-        name: '问答标注任务 - AI助手对话',
-        content: hasContent ? '一加一等于几？' : '',
+        name: '问答标注任务 - 设备告警处置',
+        content: hasContent ? 'A03 空压机排气温度连续 6 分钟高于 95℃，振动 RMS 升至 8.2mm/s，健康评分为 64，应该如何处置？' : '',
         type: 'qa',
         prompts: [
           {
             id: 1,
-            prompt: '请回答这个问题',
+            prompt: '请给出标准处置建议',
             response: [['']],
             required: true,
           },
           {
             id: 2,
-            prompt: '请提供详细解释',
+            prompt: '请补充需要核查的关联指标',
             response: [['']],
             required: false,
           },
@@ -245,27 +240,27 @@ export const createMockData = (rId: string, type: string): AnnotationData => {
     case 'ranking':
       return {
         ...baseData,
-        name: '问答排序标注任务',
+        name: '故障排查步骤排序任务',
         type: 'ranking',
-        content: '小白菜',
+        content: 'A03 空压机出现高温告警，同时振动 RMS 持续上升。请对排查步骤和处置建议进行优先级排序。',
         prompts: [
           {
             id: 1,
-            prompt: '这是什么东西？',
+            prompt: '优先排查哪些现场因素？',
             responses: [
-              { id: 1, response: '一种绿色蔬菜' },
-              { id: 2, response: '一种农作物' },
-              { id: 3, response: '一种食物' },
-              { id: 4, response: '一种绿色有机蔬菜食品' }
+              { id: 1, response: '先确认边缘网关和传感器数据是否连续、可信' },
+              { id: 2, response: '检查冷却风扇转速、风道堵塞和环境温度' },
+              { id: 3, response: '核对负载电流、排气压力和近期工况变化' },
+              { id: 4, response: '查看历史趋势，判断温度和振动是否同步劣化' }
             ]
           },
           {
             id: 2,
-            prompt: '多少钱一斤',
+            prompt: '哪些处置建议更适合生成工单？',
             responses: [
-              { id: 1, response: '310分' },
-              { id: 2, response: '31角' },
-              { id: 3, response: '3块1毛' }
+              { id: 1, response: '创建预测性维护工单，记录告警指标、趋势和现场照片' },
+              { id: 2, response: '限制设备负载，安排班组检查冷却系统' },
+              { id: 3, response: '复核备件库存，准备风扇组件和温振传感器' }
             ]
           }
         ]

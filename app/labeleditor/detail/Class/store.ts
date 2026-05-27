@@ -6,31 +6,18 @@ import { DynamicFormRef } from './components/DynamicForm';
 // 模拟API数据
 const mockClassificationData: ClassificationData = {
     id: '1',
-    name: '这是一个标注名称（标注任务: 123）',
-    content: `内部采购合同
+    name: '告警文本分类任务 - 工业设备状态',
+    content: `设备告警记录
 
-合同编号：CG-2024-0810-001
+告警编号：ALM-20260527-0087
+设备名称：A03 空压机
+所属产线：总装一线
+采集来源：边缘网关 GW-07 / Modbus TCP
+触发时间：2026-05-27 08:15:32
 
-甲方（采购方）：
-部门名称：创新事业部
-负责人：李经理
-联系方式：li@company.com / 分机号：8001
+告警内容：排气温度连续 6 分钟高于 95℃，振动 RMS 从 5.4mm/s 升至 8.2mm/s，设备健康评分降至 64。现场点检发现冷却风扇转速偏低，建议限制负载并创建预测性维护工单。
 
-乙方（供应方）：
-部门名称：行政部-采购处
-负责人：王主管
-联系方式：wang@company.com / 分机号：6005
-
-鉴于甲方因业务发展需要，时向乙方申请采购一批办公设备，乙方同意根据公司内部采购流程提供相关服务，双方经协商一致，达成如下协议：
-
-第一条 采购物品清单
-
-| 序号 | 物品名称 | 规格型号 | 单位 | 数量 | 预估单价（元）| 预估总价（元）| 备注 |
-|------|----------|----------|------|------|---------------|---------------|------|
-| 1    | 笔记本电脑 | ThinkPad X1 Carbon | 台  | 5    | 12,000.00     | 60,000.00     | 研发人员使用 |
-| 2    | 34英寸曲面显示器 | Dell U3421WE | 台  | 5    | 5,500.00      | 27,500.00     |      |
-| 3    | 机械键盘 | Cherry MX 3.0 | 个  | 5    | 800.00        | 4,000.00      |      |
-|      |          |          |      |      | 合计：        | 91,500.00     |      |`,
+关联指标：排气温度、振动 RMS、电流负载率、冷却风扇转速、设备健康评分。`,
     formFields: [
         {
             id: 'document_type',
@@ -40,19 +27,19 @@ const mockClassificationData: ClassificationData = {
             required: true,
             options: [
                 {
-                    label: '合同',
-                    value: 'contract',
+                    label: '设备告警',
+                    value: 'alarm',
                     hasInput: true,
-                    inputPlaceholder: '请输入合同类型',
+                    inputPlaceholder: '请输入告警类型',
                 },
                 {
-                    label: '报告',
-                    value: 'report',
+                    label: '点检记录',
+                    value: 'inspection',
                     hasInput: false,
                 },
                 {
-                    label: '发票',
-                    value: 'invoice',
+                    label: '维修工单',
+                    value: 'work_order',
                     hasInput: false,
                 },
                 {
@@ -64,37 +51,37 @@ const mockClassificationData: ClassificationData = {
             ],
         },
         {
-            id: 'business_department',
-            name: 'business_department',
-            label: '业务部门',
+            id: 'alarm_level',
+            name: 'alarm_level',
+            label: '告警等级',
             type: 'checkbox',
             required: false,
             options: [
                 {
-                    label: '财务部',
-                    value: 'finance',
+                    label: '一般',
+                    value: 'minor',
                     hasInput: false,
                 },
                 {
-                    label: '市场部',
-                    value: 'marketing',
+                    label: '严重',
+                    value: 'major',
                     hasInput: true,
-                    inputPlaceholder: '请输入具体市场部门',
+                    inputPlaceholder: '请输入严重原因',
                 },
                 {
-                    label: '人力资源部',
-                    value: 'hr',
+                    label: '紧急',
+                    value: 'critical',
                     hasInput: false,
                 },
             ],
         },
         {
-            id: 'project_client',
-            name: 'project_client',
-            label: '项目/客户',
+            id: 'affected_asset',
+            name: 'affected_asset',
+            label: '影响设备/产线',
             type: 'input',
             required: false,
-            placeholder: '输入内容',
+            placeholder: '例如：A03 空压机 / 总装一线',
             maxLength: 100,
         },
     ],

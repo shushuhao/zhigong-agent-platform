@@ -246,35 +246,35 @@ export const useEntityRelationStore = create<EntityRelationState>((set, get) => 
         setTimeout(() => {
             try {
                 // Mock数据 - 实际应该调用API
-                const content = '微软（Microsoft）由比尔·盖茨（Bill Gates）和保罗·艾伦（Paul Allen）于1975年4月4日在新墨西哥州的阿尔伯克基创立。当时，比尔·盖茨是公司的首席执行官（CEO）。作为一家总部位于美国华盛顿州雷德蒙德的跨国科技公司，微软是全球最大的软件制造商之一。';
+                const content = '产线A-03空压机在2026年5月27日08:15触发高温告警，边缘网关GW-07通过Modbus TCP采集到排气温度96℃、振动RMS 8.2mm/s。运维工程师张工在一车间确认冷却风扇转速异常，并创建工单WO-20260527-001。';
 
                 const mockData: AnnotationData = {
                     id,
-                    name: '实体关系标注任务 - 科技公司介绍',
+                    name: '实体关系标注任务 - 设备告警工单',
                     content,
                     entityLabels: [
                         {
-                            id: '1', name: '人名', color: '#1890ff', selected: false,
+                            id: '1', name: '设备', color: '#1890ff', selected: false,
                         },
                         {
-                            id: '2', name: '地点', color: '#52c41a', selected: false,
+                            id: '2', name: '产线/位置', color: '#52c41a', selected: false,
                         },
                         {
-                            id: '3', name: '职位', color: '#faad14', selected: false,
+                            id: '3', name: '告警', color: '#faad14', selected: false,
                         },
                         {
-                            id: '4', name: '公司', color: '#f5222d', selected: false,
+                            id: '4', name: '采集网关', color: '#f5222d', selected: false,
                         },
                     ],
                     relationLabels: [
                         {
                             id: 'r1',
-                            name: '就职于',
+                            name: '位于',
                             entityLabelIds: ['1', '4'],
                             startEntityLabels: ['1'],
                             targetEntityLabels: ['4'],
                             selected: false,
-                        }, // 人名和公司之间
+                        }, // 设备和产线之间
                         {
                             id: 'r2',
                             name: '位于',
@@ -282,15 +282,15 @@ export const useEntityRelationStore = create<EntityRelationState>((set, get) => 
                             startEntityLabels: ['4'],
                             targetEntityLabels: ['2'],
                             selected: false,
-                        }, // 公司和地点之间
+                        }, // 网关和位置之间
                         {
                             id: 'r3',
-                            name: '担任',
+                            name: '触发',
                             entityLabelIds: ['1', '3'],
                             startEntityLabels: ['1'],
                             targetEntityLabels: ['3'],
                             selected: false,
-                        }, // 人名和职位之间
+                        }, // 设备和告警之间
                         {
                             id: 'r4',
                             name: '不可用关系',
@@ -304,66 +304,66 @@ export const useEntityRelationStore = create<EntityRelationState>((set, get) => 
                         {
                             id: 'entity1',
                             start: 0,
-                            end: 2,
-                            text: '微软',
-                            labelId: '4',
-                            labelName: '公司',
-                            color: '#f5222d',
+                            end: 6,
+                            text: '产线A-03',
+                            labelId: '2',
+                            labelName: '产线/位置',
+                            color: '#52c41a',
                             visible: true,
                             highlighted: false,
                         },
                         {
                             id: 'entity2',
-                            start: 14,
-                            end: 19,
-                            text: '比尔·盖茨',
+                            start: 6,
+                            end: 9,
+                            text: '空压机',
                             labelId: '1',
-                            labelName: '人名',
+                            labelName: '设备',
                             color: '#1890ff',
                             visible: true,
                             highlighted: false,
                         },
                         {
                             id: 'entity3',
-                            start: 30,
-                            end: 35,
-                            text: '保罗·艾伦',
-                            labelId: '1',
-                            labelName: '人名',
+                            start: 27,
+                            end: 31,
+                            text: '高温告警',
+                            labelId: '3',
+                            labelName: '告警',
                             color: '#1890ff',
                             visible: true,
                             highlighted: false,
                         },
                         {
                             id: 'entity4',
-                            start: 52,
-                            end: 59,
-                            text: '新墨西哥州',
-                            labelId: '2',
-                            labelName: '地点',
+                            start: 32,
+                            end: 41,
+                            text: '边缘网关GW-07',
+                            labelId: '4',
+                            labelName: '采集网关',
                             color: '#52c41a',
                             visible: true,
                             highlighted: false,
                         },
                         {
                             id: 'entity5',
-                            start: 61,
-                            end: 67,
-                            text: '阿尔伯克基',
+                            start: 86,
+                            end: 89,
+                            text: '一车间',
                             labelId: '2',
-                            labelName: '地点',
+                            labelName: '产线/位置',
                             color: '#52c41a',
                             visible: true,
                             highlighted: false,
                         },
                         {
                             id: 'entity6',
-                            start: 85,
-                            end: 94,
-                            text: '首席执行官',
-                            labelId: '3',
-                            labelName: '职位',
-                            color: '#faad14',
+                            start: 43,
+                            end: 53,
+                            text: 'Modbus TCP',
+                            labelId: '4',
+                            labelName: '采集网关',
+                            color: '#f5222d',
                             visible: true,
                             highlighted: false,
                         },
@@ -374,7 +374,7 @@ export const useEntityRelationStore = create<EntityRelationState>((set, get) => 
                             fromEntityId: 'entity2',
                             toEntityId: 'entity1',
                             relationId: 'r1',
-                            relationName: '就职于',
+                            relationName: '位于',
                             visible: true,
                         },
                         {
@@ -382,7 +382,7 @@ export const useEntityRelationStore = create<EntityRelationState>((set, get) => 
                             fromEntityId: 'entity2',
                             toEntityId: 'entity6',
                             relationId: 'r3',
-                            relationName: '担任',
+                            relationName: '触发',
                             visible: true,
                         },
                     ],
@@ -400,8 +400,8 @@ export const useEntityRelationStore = create<EntityRelationState>((set, get) => 
                             label: '分类',
                             value: '',
                             options: [
-                                { label: '科技', value: 'tech' },
-                                { label: '商业', value: 'business' },
+                                { label: '设备告警', value: 'alarm' },
+                                { label: '工单处理', value: 'work_order' },
                             ],
                         },
                     ],

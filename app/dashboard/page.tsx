@@ -62,7 +62,7 @@ export default function Dashboard() {
 
   return (
     <MainLayout>
-      <PageHeader title="平台总览" subtitle="查看 AI Agent Studio 的关键模块状态与近期活动" />
+      <PageHeader title="平台总览" subtitle="查看智工智能体平台的关键模块状态与近期活动" />
 
       <Row gutter={[24, 24]} className="mb-8">
         {statsData.map((stat, index) => (
