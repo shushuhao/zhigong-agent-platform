@@ -1,0 +1,83 @@
+/* 关系面板中的实体显示 */
+.entityInRelation {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+  min-width: 0; /* 允许flex子项收缩 */
+  justify-content: center;
+}
+
+.entityText {
+  font-weight: 400;
+  color: #333;
+  max-width: 146px; /* 调整为146px，根据设计要求 */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.entityTypeTag {
+  font-size: 10px;
+  color: white;
+  padding: 1px 4px;
+  border-radius: 2px;
+  font-weight: bold;
+}
+
+.relationArrowContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* gap: 2px; */
+  margin: 0 4px;
+  flex-shrink: 0;
+  min-width: 60px; /* 确保箭头容器有足够宽度 */
+}
+
+.relationName {
+  font-weight: 500;
+  font-size: 11px;
+  white-space: nowrap;
+  text-align: center;
+  max-width: 4em; /* 限制最多4个字符宽度 */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.relationArrow {
+  flex-shrink: 0;
+}
+
+/* 关系项容器 */
+.relationItem {
+  padding: 8px 12px;
+  border-bottom: 1px solid #f0f0f0;
+  border-radius: 6px;
+  margin: 2px 0;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+}
+
+.relationItem:hover {
+  background-color: #e6f7ff;
+  border-color: #91d5ff;
+}
+
+.relationItem:last-child {
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.relationConnection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 8px;
+}
+
+.entityActions {
+  display: flex;
+  gap: 4px;
+  justify-content: flex-end;
+}

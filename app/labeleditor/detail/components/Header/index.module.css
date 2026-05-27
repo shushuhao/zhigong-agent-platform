@@ -1,0 +1,159 @@
+/* 顶部信息栏 */
+.topBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 16px;
+  background: white;
+  border-bottom: 1px solid #E2E8F0;
+  min-height: 60px; /* 确保Header有固定的最小高度 */
+}
+
+.topLeft {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.backButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  color: #666;
+  transition: all 0.2s ease;
+}
+
+.backButton:hover {
+  background-color: #f0f0f0;
+  color: #1890ff;
+}
+
+.titleSection {
+  display: flex;
+  flex-direction: column;
+  /* gap: 2px; */
+}
+
+.titleText {
+  color: #0F172A;
+  font-weight: 600;
+  line-height: 22px;
+  min-height: 22px; /* 确保即使内容为空也保持高度 */
+}
+
+.titleTime {
+  font-size: 12px;
+  margin-top: 2px;
+  display: inline-block;
+  background: #F5F9FF;
+  color: #6E7B8D;
+  border-radius: 4px;
+  padding: 2px 8px;
+  width: fit-content;
+}
+
+.topCenter {
+  display: flex;
+  align-items: center;
+}
+
+.progressSection {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.topRight {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.continuousToggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.entityCount {
+  font-size: 12px;
+  color: #666;
+  margin-right: 8px;
+}
+
+.relationCount {
+  font-size: 12px;
+  color: #666;
+  margin-right: 8px;
+}
+
+/* 更多按钮样式 */
+.moreButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  color: #334155;
+  transition: all 0.2s ease;
+}
+
+.moreButton:hover {
+  background-color: #f0f0f0;
+  color: #1890ff;
+}
+
+/* 快捷键弹窗样式 */
+.shortcutList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 8px 0;
+}
+
+.shortcutItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background: #f8f9fa;
+  border-radius: 6px;
+  border: 1px solid #e9ecef;
+}
+
+.shortcutKey {
+  font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
+  font-size: 12px;
+  font-weight: 600;
+  background: #fff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid #d9d9d9;
+  color: #333;
+  min-width: 120px;
+  text-align: center;
+}
+
+.shortcutDescription {
+  font-size: 14px;
+  color: #555;
+  flex: 1;
+  text-align: right;
+}
+
+/* 使用教程 Tooltip 样式 */
+.tutorialTooltip :global(.ant-tooltip-inner) {
+  background: #1f2937 !important;
+  color: #f9fafb !important;
+  border-radius: 8px !important;
+  padding: 12px 16px !important;
+  font-size: 13px !important;
+  line-height: 1.5 !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25) !important;
+}

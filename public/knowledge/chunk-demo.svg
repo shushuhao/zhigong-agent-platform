@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="180" viewBox="0 0 320 180">
+  <rect width="320" height="180" rx="16" fill="#e2e8f0"/>
+  <rect x="24" y="24" width="272" height="96" rx="12" fill="#f8fafc"/>
+  <circle cx="70" cy="72" r="22" fill="#93c5fd"/>
+  <rect x="110" y="56" width="160" height="12" rx="6" fill="#cbd5f5"/>
+  <rect x="110" y="78" width="120" height="12" rx="6" fill="#dbeafe"/>
+  <rect x="24" y="132" width="272" height="24" rx="10" fill="#cbd5f5"/>
+  <text x="160" y="148" font-size="12" text-anchor="middle" fill="#475569">Markdown Image</text>
+</svg>

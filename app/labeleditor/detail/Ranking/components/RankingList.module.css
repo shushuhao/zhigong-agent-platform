@@ -1,0 +1,107 @@
+.rankingList {
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  padding-left: 8px; /* 与问题标题的左padding对齐 */
+}
+
+.rankingItemWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.rankingItem {
+  display: flex;
+  align-items: center; /* 改为居中对齐 */
+  gap: 12px;
+  padding: 12px;
+  padding-left: 0px;
+  background: #fff;
+  border-radius: 8px;
+  cursor: move;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.rankingItem:hover {
+  border-color: #1890ff;
+  box-shadow: 0 2px 8px rgba(24, 144, 255, 0.1);
+}
+
+.rankingItem.dragging {
+  opacity: 0.4;
+}
+
+.rankingItem.dragOver {
+  border-color: #1890ff;
+  background-color: #f0f8ff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(24, 144, 255, 0.2);
+}
+
+.dragHandle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  color: #64748B;
+  cursor: grab;
+  flex-shrink: 0;
+}
+
+.dragHandle:hover {
+  color: #475569;
+}
+
+.dragHandle:active {
+  cursor: grabbing;
+}
+
+.orderNumber {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  background: #E2E8F0;
+  color: #0F172A;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  flex-shrink: 0;
+  border: 1px solid #E2E8F0;
+}
+
+.itemContent {
+  flex: 1;
+  line-height: 1.6;
+  color: #0F172A;
+  font-size: 14px;
+  word-break: break-word;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .rankingList {
+    padding: 12px;
+    gap: 8px;
+  }
+
+  .rankingItem {
+    padding: 12px;
+    gap: 8px;
+  }
+
+  .itemContent {
+    font-size: 13px;
+  }
+}
+
+/* 分隔线样式 */
+.divider {
+  height: 1px;
+  background-color: #E2E8F0;
+  margin: 8px 0 0 0; /* 上边距8px，其他方向无间距 */
+  width: 100%; /* 确保占满宽度 */
+}

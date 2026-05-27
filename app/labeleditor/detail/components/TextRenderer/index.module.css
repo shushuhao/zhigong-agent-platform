@@ -1,0 +1,98 @@
+.textContainer {
+  position: relative;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  border: 1px solid #e8e8e8;
+  min-height: 200px;
+  user-select: text;
+  cursor: text;
+}
+
+.textContent {
+  line-height: 1.8;
+  font-size: 16px;
+  color: #262626;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+.entity {
+  position: relative;
+  padding: 2px 4px;
+  margin: 0 1px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline;
+  font-weight: 500;
+}
+
+.entity:hover,
+.entityHovered {
+  border-style: solid;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+}
+
+.entitySelected {
+  border-style: solid;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transform: translateY(-1px);
+  font-weight: 600;
+}
+
+/* 实体标签提示 */
+.entity::after {
+  content: attr(title);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 1000;
+}
+
+.entity:hover::after {
+  opacity: 1;
+}
+
+/* 文本选择样式 */
+.textContainer ::selection {
+  background: rgba(24, 144, 255, 0.3);
+}
+
+.textContainer ::-moz-selection {
+  background: rgba(24, 144, 255, 0.3);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .textContainer {
+    padding: 16px;
+  }
+
+  .textContent {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .entity {
+    padding: 1px 2px;
+    margin: 0;
+  }
+
+  .entity::after {
+    font-size: 11px;
+    padding: 2px 6px;
+  }
+}

@@ -1,0 +1,94 @@
+.collapse {
+  background: transparent;
+}
+
+.collapseItem {
+  margin-bottom: 16px;
+  border-radius: 4px;
+  overflow: hidden; /* 确保边框圆角正确显示 */
+}
+
+.collapseItem:last-child {
+  margin-bottom: 0;
+}
+
+.collapseHeader {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px;
+  padding-left: 8px;
+  background: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  position: relative;
+  border: 1px solid #E2E8F0;
+  border-radius: 4px; /* 默认完整圆角 */
+}
+
+/* 展开时的header样式 - 去掉下边圆角 */
+.headerExpanded {
+  border-radius: 4px 4px 0 0 !important;
+}
+
+
+
+/* 当面板展开时，标题的下边框与内容连接 */
+.headerExpanded {
+  border-radius: 4px 4px 0 0 !important;
+}
+
+.headerContent {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+}
+
+.expandIcon {
+  color: #666;
+  font-size: 12px;
+  transition: transform 0.3s ease;
+  margin-right: 8px;
+}
+
+.collapseContent {
+  margin-top: 0; /* 移除间距，让边框连接 */
+  padding: 0; /* 移除padding */
+  /* background: #F8FAFD; */
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+  border: 1px solid #E2E8F0;
+  border-top: none; /* 移除上边框，与标题连接 */
+  border-radius: 0 0 4px 4px; /* 只有下边圆角 */
+}
+
+.collapseContentEntering {
+  max-height: 0;
+  opacity: 0;
+}
+
+.collapseContentEntered {
+  max-height: 300px; /* 减小最大高度 */
+  opacity: 1;
+}
+
+/* 自定义色块样式 */
+.labelIndicator {
+  position: absolute;
+  left: -1px;
+  top: -1px;
+  bottom: -1px;
+  width: 6px;
+  z-index: 1;
+  /* border-radius: 4px 0 0 4px; */
+}
+
+.labelText {
+  font-weight: 400;
+  color: #262626;
+  font-size: 14px;
+  margin-left: 5px;
+}

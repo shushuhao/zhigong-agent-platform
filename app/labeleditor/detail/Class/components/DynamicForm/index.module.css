@@ -1,0 +1,279 @@
+.dynamicForm {
+  background: #fff;
+  height: 100%;
+  overflow-y: auto;
+}
+
+/* 和排序标注相同的标题样式 */
+.sectionTitle {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  padding: 8px 16px 7px 16px;
+  border-bottom: 1px solid #E2E8F0;
+  margin-bottom: 16px;
+}
+
+.form {
+  width: 100%;
+  padding: 16px !important;
+  padding-top: 0px !important;
+}
+
+.formItem {
+  /* margin-bottom: 20px; */
+}
+/* 自定义必填标记样式 */
+.customFormItem :global(.ant-form-item-required)::before {
+  display: none !important; /* 隐藏默认的红色星号 */
+}
+.formItem:last-child {
+  margin-bottom: 0;
+}
+
+.fieldLabel {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  display: flex;
+  align-items: center; /* 垂直居中对齐 */
+}
+
+.required {
+  color: #ff4d4f;
+}
+
+/* Radio Group 样式 - 垂直布局 */
+.radioContainer {
+  width: 100%;
+  overflow: hidden; /* 防止内容溢出 */
+}
+
+.radioGroup {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  /* gap: 12px; */
+}
+
+.radioItem {
+  padding: 4px 0;
+}
+
+.optionRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 32px;
+  width: 100%;
+  overflow: hidden; /* 防止内容溢出 */
+}
+
+.radioOption {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+  margin-right: 0;
+  transition: all 0.2s;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  flex-shrink: 0;
+}
+
+.radioOption :global(.ant-radio-wrapper) {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.radioOption :global(.ant-radio-wrapper:hover) {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.radioOption :global(.ant-radio-wrapper-checked) {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Checkbox Group 样式 - 垂直布局 */
+.checkboxContainer {
+  width: 100%;
+  overflow: hidden; /* 防止内容溢出 */
+}
+
+.checkboxGroup {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  /* gap: 12px; */
+}
+
+.checkboxItem {
+  padding: 4px 0;
+}
+
+.checkboxOption {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+  margin-right: 0;
+  transition: all 0.2s;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  flex-shrink: 0;
+}
+
+.checkboxOption :global(.ant-checkbox-wrapper) {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.checkboxOption :global(.ant-checkbox-wrapper:hover) {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.checkboxOption :global(.ant-checkbox-wrapper-checked) {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Input 样式 */
+.input {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #d9d9d9;
+  transition: all 0.2s;
+  font-size: 14px;
+  min-height: 36px;
+}
+
+.input:focus {
+  border-color: #1890ff;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+}
+
+.input::placeholder {
+  color: #bfbfbf;
+}
+
+/* 选项输入框样式 */
+.optionInput {
+  flex: 1; /* 自适应剩余空间 */
+  min-width: 120px; /* 最小宽度 */
+  max-width: 300px; /* 最大宽度，防止过长 */
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #d9d9d9;
+  transition: all 0.2s;
+  font-size: 14px;
+  min-height: 32px;
+}
+
+/* 强制正常边框样式 - 覆盖任何错误状态 */
+/* :global(.force-normal-border),
+:global(.force-normal-border:hover),
+:global(.force-normal-border:focus),
+:global(.force-normal-border.ant-input),
+:global(.force-normal-border.ant-input:hover),
+:global(.force-normal-border.ant-input:focus),
+:global(.force-normal-border.ant-input-status-error),
+:global(.force-normal-border.ant-input-status-error:hover),
+:global(.force-normal-border.ant-input-status-error:focus) {
+  border-color: #d9d9d9 !important;
+  box-shadow: none !important;
+} */
+
+.optionInput:focus {
+  border-color: #1890ff;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+}
+
+.optionInput::placeholder {
+  color: #bfbfbf;
+}
+
+/* 响应式设计 - 小屏幕时输入框换行 */
+@media (max-width: 768px) {
+  .optionRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .optionInput {
+    width: 100%;
+    max-width: none;
+    margin-left: 24px; /* 与选项文字对齐 */
+  }
+}
+
+/* TextArea 样式 */
+.textarea {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #d9d9d9;
+  transition: all 0.2s;
+  resize: vertical;
+}
+
+.textarea:focus {
+  border-color: #1890ff;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+}
+
+/* Select 样式 */
+.select {
+  width: 100%;
+}
+
+.select :global(.ant-select-selector) {
+  border-radius: 6px !important;
+  padding: 4px 8px !important;
+}
+
+/* 滚动条样式 */
+.dynamicForm::-webkit-scrollbar {
+  width: 6px;
+}
+
+.dynamicForm::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.dynamicForm::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.dynamicForm::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .sectionTitle {
+    padding: 16px 16px 12px 16px;
+    font-size: 16px;
+    margin-bottom: 16px;
+  }
+
+  .form {
+    padding: 0 16px;
+  }
+
+  .formItem {
+    margin-bottom: 16px;
+  }
+}

@@ -1,0 +1,170 @@
+/* 无内容时的布局 */
+.noContentLayout {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.noContentLayout .rankingSection {
+  width: 100%;
+}
+
+/* 有内容时的左右布局 */
+.withContentLayout {
+  display: flex;
+  height: 100vh;
+}
+
+.contentSection {
+  flex: 1;
+  background: #fff;
+  border-right: 1px solid #E2E8F0;
+  padding: 24px;
+  overflow-y: auto;
+}
+
+
+
+.contentText {
+  line-height: 32px;
+  color: #0F172A;
+  font-size: 16px;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.rankingSection {
+  width: 440px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* 确保撑满高度 */
+}
+
+/* 问答排序标题 - 固定在顶部 */
+.sectionTitle {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  color: #333;
+  padding: 8px 16px 7px 16px;
+  border-bottom: 1px solid #E2E8F0;
+  background: #fff;
+  flex-shrink: 0; /* 防止被压缩 */
+  /* margin-bottom: 8px; */
+}
+
+/* 排序内容区域 - 可滚动 */
+.rankingContent {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 36px;
+}
+
+/* 请按照优先级排序标题 */
+.taskTitle {
+  font-size: 14px;
+  color: #333;
+  padding: 0 16px;
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.required {
+  color: #ff4d4f;
+  margin-right: 4px;
+}
+
+/* 多个 prompt 容器样式 */
+.promptContainer {
+  padding: 16px 16px 0px 16px;
+}
+
+.promptContainer:last-child {
+  margin-bottom: 16px;
+}
+
+.promptTitle {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1E293B;
+  margin-bottom: 12px;
+  line-height: 1.5;
+  padding: 8px 12px;
+  background: #f8f9fa;
+  border-radius: 6px;
+  border-left: 3px solid #1890ff;
+}
+
+/* 新增：问题标题样式，* 号和文字垂直居中 */
+.questionTitle {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #1E293B;
+  line-height: 1.5;
+}
+
+/* 无数据提示 */
+.noDataMessage {
+  padding: 40px 16px;
+  text-align: center;
+  color: #999;
+  font-size: 14px;
+}
+
+/* 响应式设计 */
+@media (max-width: 1024px) {
+  .withContentLayout {
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .contentSection,
+  .rankingSection {
+    flex: none;
+  }
+
+  .contentSection {
+    max-height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .withContentLayout,
+  .noContentLayout {
+    padding: 16px;
+    gap: 16px;
+  }
+
+  .contentSection,
+  .rankingSection {
+    padding: 16px;
+  }
+
+  .sectionTitle {
+    padding: 16px 16px 12px 16px;
+    font-size: 16px;
+    margin-bottom: 16px;
+  }
+
+  .taskTitle {
+    padding: 0 16px;
+    font-size: 13px;
+  }
+
+
+
+  .contentText {
+    font-size: 13px;
+  }
+}
+
+/* 题目之间的分隔线 */
+.promptDivider {
+  height: 1px;
+  background-color: #E2E8F0;
+  margin: 1px 0; /* 上下各16px间距 */
+  width: 100%; /* 占满宽度 */
+}

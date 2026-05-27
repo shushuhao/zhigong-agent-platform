@@ -1,0 +1,83 @@
+/* 实体选择下拉框样式 */
+.entityDropdown {
+  z-index: 1000;
+  animation: fadeInUp 0.2s ease;
+}
+
+/* 覆盖 Ant Design Card 的默认样式 */
+.entityDropdown :global(.ant-card-body) {
+  padding: 0 !important;
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dropdownHeader {
+  padding: 8px 12px;
+  border-bottom: 1px solid #e8e8e8;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.selectedTextHint {
+  color: #1890ff;
+  font-weight: normal;
+  margin-left: 8px;
+}
+
+.dropdownContent {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.dropdownItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  position: relative;
+}
+
+.dropdownItem:hover {
+  background-color: #EEF6FF;
+}
+
+.dropdownItem:active {
+  background-color: #e6f7ff;
+}
+
+.dropdownItem.selected {
+  background-color: #e6f7ff;
+  border: 1px solid #1890ff;
+}
+
+.continuousHint {
+  margin-left: auto;
+  font-size: 12px;
+  color: #52c41a;
+  background: #f6ffed;
+  padding: 2px 6px;
+  border-radius: 3px;
+  border: 1px solid #b7eb8f;
+}
+
+.dropdownFooter {
+  padding: 8px 12px;
+  border-top: 1px solid #e8e8e8;
+  font-size: 12px;
+  color: #666;
+  text-align: center;
+}
+
+.hint {
+  font-style: italic;
+}

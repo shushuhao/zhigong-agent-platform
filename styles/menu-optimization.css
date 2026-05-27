@@ -1,0 +1,52 @@
+/**
+ * Ant Design Menu 性能优化
+ * 
+ * 这个文件包含了优化 Ant Design Menu 组件性能的 CSS 规则
+ */
+
+/* 禁用菜单项的过渡动画，提高响应速度 */
+.ant-menu-item,
+.ant-menu-submenu-title {
+  transition: none !important;
+}
+
+/* 优化菜单项的悬停效果 */
+.ant-menu-item:hover,
+.ant-menu-submenu-title:hover {
+  background-color: #f5f5f5 !important;
+}
+
+/* 禁用菜单展开/收起的动画 */
+.ant-menu-submenu > .ant-menu {
+  animation: none !important;
+}
+
+/* 优化菜单项的选中状态 */
+.ant-menu-item-selected {
+  background-color: #e6f7ff !important;
+  transition: none !important;
+}
+
+/* 禁用 Ant Design 的默认过渡效果 */
+.ant-menu {
+  transition: none !important;
+}
+
+/* 优化菜单容器的性能 */
+.ant-menu-inline {
+  will-change: auto;
+}
+
+/* 禁用菜单项图标的过渡 */
+.ant-menu-item-icon,
+.ant-menu-submenu-title-icon {
+  transition: none !important;
+}
+
+/* 优化菜单文本的渲染 */
+.ant-menu-item-title,
+.ant-menu-submenu-title {
+  font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
+}
+

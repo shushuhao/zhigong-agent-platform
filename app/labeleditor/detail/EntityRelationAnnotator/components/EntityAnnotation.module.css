@@ -1,0 +1,388 @@
+/* 实体包装器 */
+.entityWrapper {
+  display: inline;
+  position: relative;
+}
+
+/* 实体标签样式 */
+.entityLabel {
+  color: inherit;
+  font-size: 12px;
+  font-weight: normal;
+  position: relative;
+  top: 2px;
+  margin-left: 1px;
+  opacity: 0.9;
+}
+
+/* 连接数量显示 */
+.connectionCount {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #007DFA;
+  color: white;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 0;
+  border-radius: 50%; /* 完全圆形 */
+  margin-left: 2px;
+  margin-top: -3px;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  vertical-align: middle; /* 与文本基线对齐 */
+  /* Firefox兼容性修复：确保元素有明确的定位上下文 */
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+.connectionCount:hover {
+  background-color: #40a9ff;
+  transform: scale(1.1); /* 恢复明显的缩放效果 */
+}
+
+/* 连线状态下的禁用样式 */
+.connectionCountDisabled {
+  opacity: 0.5 !important;
+  cursor: not-allowed !important;
+  pointer-events: none; /* 完全禁用鼠标事件 */
+}
+
+.connectionCountDisabled:hover {
+  background-color: #007DFA !important; /* 保持原色，不变色 */
+  transform: none !important; /* 禁用缩放效果 */
+}
+
+/* 悬浮提示框 */
+.connectionTooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  color: #333;
+  padding: 8px 12px;
+  border-radius: 6px;
+  /* font-size: 12px; */
+  z-index: 999999 !important; /* 设置最高z-index避免被Header遮挡 */
+  margin-bottom: 10px; /* 减少距离，方便鼠标移动 */
+  opacity: 1;
+  pointer-events: all;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: 1px solid #e8e8e8;
+  min-width: 120px;
+  max-width: 250px;
+}
+
+/* 添加桥接区域，让鼠标可以从数字移动到tooltip */
+.connectionTooltip::before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 15px; /* 桥接区域高度 */
+  background: transparent;
+  pointer-events: all;
+}
+
+.connectionTooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: white;
+}
+
+/* 关系详情列表 */
+.relationDetails {
+  white-space: nowrap;
+  min-width: 360px; /* 确保有足够宽度容纳120px的实体文本 */
+  width: auto;
+}
+
+.relationDetail {
+  margin-bottom: 8px;
+  /* font-size: 12px; */
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 16px; /* 上下12px，左右16px，给删除按钮更多空间 */
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  /* background-color: #fafafa; */
+  /* border: 1px solid #f0f0f0; */
+  min-width: 0;
+}
+
+.relationDetail:hover {
+  background-color: #f0f8ff; /* 浅蓝色背景 */
+  border-color: #91d5ff;
+}
+
+.relationDetail:last-child {
+  margin-bottom: 0;
+}
+
+.relationDirection {
+  color: #1890ff;
+  font-weight: bold;
+}
+
+.relationName {
+  color: #666;
+  background: #f5f5f5;
+  /* padding: 2px 6px; */
+  border-radius: 3px;
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.relatedEntity {
+  color: #333;
+  font-weight: 500;
+  flex: 1;
+}
+
+.deleteRelation {
+  background: #ff4d4f;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  font-size: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  transition: background-color 0.2s ease;
+}
+
+.deleteRelation:hover {
+  background: #ff7875;
+}
+
+/* 实体悬浮提示框 - 简化版本，显示在文本下方 */
+.entityTooltip {
+  position: absolute !important;
+  top: 100% !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  background-color: #ffffff !important; /* 强制纯白色背景 */
+  background: #ffffff !important; /* 双重保险 */
+  color: #333333 !important; /* 深色文字确保可见 */
+  border-radius: 4px !important;
+  font-weight: 500 !important; /* 加粗文字 */
+  z-index: 9999999 !important; /* 超高z-index，确保在所有标注文本之上 */
+  margin-top: 8px !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important; /* 添加柔和阴影 */
+  padding: 6px 10px !important; /* 更大的内边距 */
+  white-space: nowrap !important;
+  pointer-events: none !important;
+  opacity: 1 !important; /* 确保完全不透明 */
+  filter: none !important; /* 去掉任何滤镜效果 */
+}
+
+/* .entityTooltip::before {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 4px solid transparent;
+  border-bottom-color: white;
+} */
+
+/* 删除按钮 - 显示在实体右上角 */
+.deleteEntity {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #333333; /* 黑色背景 */
+  color: white; /* 白色X */
+  border: none;
+  border-radius: 50%;
+  width: 16px; /* 更大的宽度 */
+  height: 16px; /* 更大的高度 */
+  font-size: 12px; /* 更大的字体 */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  z-index: 999999 !important; /* 删除按钮需要最高优先级，避免被Header遮挡 */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3); /* 更明显的阴影 */
+}
+
+.deleteEntity:hover {
+  background: #555555; /* 悬浮时稍微亮一点的灰色 */
+  transform: scale(1.1);
+}
+
+.tooltipBody {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.tooltipRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tooltipLabel {
+  color: #666;
+  font-size: 11px;
+  min-width: 35px;
+}
+
+.tooltipValue {
+  color: #333;
+  font-weight: 500;
+  flex: 1;
+}
+
+.tooltipTag {
+  color: white;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 10px;
+  font-weight: 500;
+}
+
+/* 警告提示样式 */
+.tooltipWarning {
+  color: #ff4d4f;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 4px;
+  padding: 4px 8px;
+  background: #fff2f0;
+  border: 1px solid #ffccc7;
+  border-radius: 4px;
+}
+
+/* 关系三元组样式 */
+.relationTriple {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  margin-right: 8px;
+  flex: 1;
+  min-width: 0; /* 允许flex项目收缩 */
+}
+
+.fromEntity {
+  color: #333;
+  font-weight: 400;
+  background: none;
+  padding: 0;
+  border: none;
+  flex-shrink: 0;
+  width: 134px;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.relationArrowContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* gap: 2px; */
+  flex-shrink: 0;
+  margin: 0 4px;
+}
+
+.relationName {
+  color: rgba(30, 41, 59, 1);
+  font-weight: 500;
+  font-size: 11px;
+  background: transparent;
+  border: none;
+  white-space: nowrap;
+  text-align: center;
+  max-width: 4em; /* 限制最多4个字符宽度 */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.relationArrow {
+  flex-shrink: 0;
+}
+
+.toEntity {
+  color: #333;
+  font-weight: 400;
+  background: none;
+  padding: 0;
+  border: none;
+  flex-shrink: 0;
+  width: 134px;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 删除关系按钮容器样式 */
+.deleteRelationContainer {
+  width: 20px; /* 固定宽度，防止hover时布局变化 */
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* 删除关系按钮样式 */
+.deleteRelation {
+  background: transparent;
+  color: #8c8c8c; /* 灰色图标 */
+  border: none;
+  border-radius: 4px;
+  width: 16px;
+  height: 16px;
+  font-size: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  padding: 0;
+  opacity: 0; /* 默认隐藏 */
+}
+
+.deleteRelation.visible {
+  opacity: 1; /* hover时显示 */
+}
+
+.deleteRelation:hover {
+  background: #f5f5f5; /* 悬浮时浅灰色背景 */
+  color: #ff4d4f; /* 悬浮时红色图标 */
+}
+
+/* 全局tooltip样式覆盖 */
+/* :global(.connection-tooltip-overlay) {
+  z-index: 999999 !important;
+} */
+
+/* 使用Antd默认tooltip样式 */
+
+
+
+
+

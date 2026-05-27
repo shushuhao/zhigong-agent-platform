@@ -1,0 +1,94 @@
+.jsonRenderer {
+  width: 100%;
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.jsonContent {
+  padding: 16px;
+  background: #fafafa;
+  border-radius: 6px;
+  border: 1px solid #f0f0f0;
+}
+
+.textContent {
+  padding: 12px;
+  background: white;
+  border-radius: 4px;
+  border: 1px solid #e8e8e8;
+  line-height: 1.6;
+}
+
+.arrayContent {
+  padding: 8px;
+}
+
+.objectContent {
+  padding: 8px;
+}
+
+.keyValuePair {
+  display: flex;
+  margin-bottom: 12px;
+  padding: 8px;
+  background: white;
+  border-radius: 4px;
+  border: 1px solid #e8e8e8;
+}
+
+.key {
+  min-width: 120px;
+  color: #1890ff;
+  font-weight: 600;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.value {
+  flex: 1;
+  word-break: break-word;
+}
+
+.value .objectContent,
+.value .arrayContent {
+  margin-left: 16px;
+  border-left: 2px solid #f0f0f0;
+  padding-left: 12px;
+}
+
+/* 嵌套层级样式 */
+.keyValuePair .keyValuePair {
+  margin-left: 16px;
+  border-left: 2px solid #e6f7ff;
+  background: #f6ffed;
+}
+
+.keyValuePair .keyValuePair .key {
+  color: #52c41a;
+  min-width: 100px;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .keyValuePair {
+    flex-direction: column;
+  }
+  
+  .key {
+    min-width: auto;
+    margin-right: 0;
+    margin-bottom: 4px;
+  }
+  
+  .value {
+    margin-left: 0;
+  }
+}

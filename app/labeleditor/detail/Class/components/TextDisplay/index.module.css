@@ -1,0 +1,45 @@
+.textDisplay {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: #fff;
+}
+
+.textContent {
+  flex: 1;
+  padding: 24px;
+  overflow-y: auto;
+  line-height: 2.2;
+  font-size: 16px;
+  color: #333;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.textLine {
+  font-size: 16px;
+  line-height: 32px;
+  margin-bottom: 4px;
+  min-height: 1.2em;
+  color: #0F172A;
+}
+
+/* 滚动条样式 */
+.textContent::-webkit-scrollbar {
+  width: 6px;
+}
+
+.textContent::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.textContent::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.textContent::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}

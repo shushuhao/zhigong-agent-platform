@@ -1,0 +1,32 @@
+/* 新版实体关系标注平台样式 */
+.newAnnotator {
+  height: 100vh;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* 加载和错误状态 */
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 16px;
+  color: #666;
+}
+
+.error {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  gap: 16px;
+}
+
+.error > div:first-child {
+  font-size: 16px;
+  color: #ff4d4f;
+}

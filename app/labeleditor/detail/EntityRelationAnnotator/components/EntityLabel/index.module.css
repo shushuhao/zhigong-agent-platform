@@ -1,0 +1,148 @@
+/* 右侧面板样式 */
+.labelCard {
+  border-bottom: 1px solid #E2E8F0;
+  flex: 1;
+  background-color: #ffffff;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 固定标题 */
+.fixedTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: #000000d9;
+  padding: 8px 16px 7px 16px;
+  /* border-bottom: 1px solid #f0f0f0; */
+  background: #ffffff;
+  flex-shrink: 0; /* 防止被压缩 */
+  position: relative;
+  z-index: 1;
+  transition: box-shadow 0.3s ease;
+}
+
+/* 当内容可滚动时显示阴影 */
+.fixedTitle.withShadow {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 可滚动内容区域 */
+.scrollableContent {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+}
+
+
+
+/* 覆盖Ant Design Collapse样式 */
+.labelCard :global(.ant-collapse) {
+  background: transparent;
+  border: none;
+}
+
+.labelCard :global(.ant-collapse-item) {
+  border-bottom: 1px solid #f0f0f0;
+  border-radius: 0;
+}
+
+.labelCard :global(.ant-collapse-header) {
+  padding: 0 !important;
+  background: #ffffff;
+  border-left: 4px solid #e8e8e8;
+  align-items: center !important;
+  position: relative;
+}
+
+.labelCard :global(.ant-collapse-expand-icon) {
+  position: absolute !important;
+  right: 16px !important;
+  left: auto !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  color: #666 !important;
+}
+
+.labelHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px;
+  position: relative;
+}
+
+.labelName {
+  font-weight: 500;
+  color: #262626;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.entityCount {
+  margin-left: auto;
+  font-size: 12px;
+  color: #8c8c8c;
+}
+
+.labelActions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.switchLabel {
+  font-size: 12px;
+  color: #666;
+}
+
+.disabledHint {
+  font-size: 12px;
+  color: #ff4d4f;
+  margin-left: auto;
+}
+
+/* 实体项目样式 */
+.entityItems {
+  display: flex;
+  flex-direction: column;
+  /* gap: 8px; */
+}
+
+.entityItem {
+  height: 44px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  /* background: #fafafa; */
+  /* border: 1px solid #e8e8e8; */
+  transition: all 0.2s ease;
+}
+
+.entityItem:hover {
+  background: #eff6ff;
+  border-color: #d9d9d9;
+  cursor: pointer;
+}
+
+.entityText {
+  font-weight: 400;
+  flex: 1;
+  padding-left: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.entityActions {
+  display: flex;
+  gap: 4px;
+}
+.emptyState {
+  padding: 8px;
+  padding-left: 14px;
+  color: #7F8C9F;
+}

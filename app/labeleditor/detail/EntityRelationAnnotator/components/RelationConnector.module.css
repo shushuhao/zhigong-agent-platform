@@ -1,0 +1,104 @@
+/* 关系连接器SVG */
+.relationSvg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 999999; /* 提高z-index，确保连线不被实体遮挡 */
+}
+
+/* 连接线样式 */
+.connectionLine {
+  stroke: #007DFA;
+  stroke-width: 2;
+  fill: none;
+  stroke-dasharray: none;
+  opacity: 1;
+  pointer-events: stroke;
+  cursor: pointer;
+  filter: drop-shadow(0 2px 4px rgba(0,125,250,0.2));
+}
+
+.connectionLine:hover,
+.connectionLine.highlighted {
+  stroke: #007DFA;
+  stroke-width: 2;
+  stroke-dasharray: none;
+  opacity: 1;
+  filter: drop-shadow(0 2px 6px rgba(0,125,250,0.3));
+}
+
+/* 起点圆点 */
+.startPoint {
+  fill: #007DFA;
+  stroke: #007DFA;
+  stroke-width: 1;
+  r: 4;
+  filter: drop-shadow(0 1px 2px rgba(0,125,250,0.3));
+}
+
+.startPoint.highlighted {
+  fill: #007DFA;
+  stroke: #007DFA;
+  r: 5;
+  filter: drop-shadow(0 2px 4px rgba(0,125,250,0.4));
+}
+
+/* 箭头标记 */
+.arrowMarker {
+  fill: #007DFA;
+}
+
+.arrowMarker.highlighted {
+  fill: #007DFA;
+}
+
+/* 预览箭头标记 */
+.previewArrowMarker {
+  fill: #007DFA;
+  opacity: 0.8;
+}
+
+/* 不可连接预览箭头标记 */
+.previewArrowMarkerDisabled {
+  fill: #d9d9d9;
+  opacity: 0.8;
+}
+
+/* 关系标签 */
+.relationLabel {
+  background: white;
+  border: 1px solid #007DFA;
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-size: 11px;
+  color: #007DFA;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  pointer-events: all;
+  font-weight: 500;
+}
+
+.relationLabel:hover,
+.relationLabel.highlighted {
+  border-color: #007DFA;
+  color: #007DFA;
+  box-shadow: 0 2px 6px rgba(0, 125, 250, 0.2);
+  background: #f0f8ff;
+}
+
+/* 删除按钮 */
+.deleteButton {
+  fill: #ff4d4f;
+  cursor: pointer;
+  pointer-events: all;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.relationLabel:hover + .deleteButton,
+.deleteButton:hover {
+  opacity: 1;
+}
